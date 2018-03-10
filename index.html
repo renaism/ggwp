@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>GGWP</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -7,9 +8,11 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-    <div class="navbar-container">
+    <div id="topNavbar" class="fixed-top">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -18,6 +21,19 @@
                 <button class="btn btn-primary navbar-btn">Sign in</button>
             </div>
         </nav>
+    </div> 
+    <div id="menuNavbar">
+        <ul class="nav">
+            <li class="nav-item justify-content-center">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contacts</a>
+            </li>
+        </ul>
     </div>
     <div id="homeCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -29,13 +45,13 @@
         <!-- Content -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="img-fluid" src="images/slide/s1.jpg">
+                <div class="carousel-img" style="background-image: url('images/slide/s1.jpg')"></div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/slide/s2.jpg">
+                <div class="carousel-img" style="background-image: url('images/slide/s2.jpg')"></div>
             </div>
             <div class="carousel-item">
-                <img class="img-fluid" src="images/slide/s3.jpg">
+                <div class="carousel-img" style="background-image: url('images/slide/s3.jpg')"></div>
             </div>
         </div>
         <!-- Controls -->
@@ -48,5 +64,33 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <div class="container-fluid fill bg-dark text-white">
+        <div class="container fixed-bottom">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum maiores placeat reprehenderit quo, sed obcaecati saepe nemo,
+                similique sapiente eveniet culpa natus magni ut ullam voluptatibus praesentium. Iste, cumque perspiciatis.
+                Corrupti, unde perspiciatis! Dolorem fugit laudantium, enim sint blanditiis est, ipsum, dolorum explicabo
+                iste maiores molestias amet delectus minus suscipit. Itaque harum corporis ab facere dignissimos. Facilis
+                magni totam atque. Ipsa maxime aliquam tenetur, in consectetur dolores debitis quod repellat, nam dolor,
+                impedit commodi sint incidunt dolore modi qui molestias deserunt error sed corporis temporibus consequatur.
+                Dolore quis accusantium optio. Harum mollitia animi possimus corporis. Ullam, modi pariatur suscipit esse
+                autem voluptatum, deleniti, perspiciatis nisi eveniet corrupti qui hic totam amet laborum quaerat libero
+                nobis? Fuga illo laudantium debitis consectetur? Molestias commodi numquam ullam, recusandae quasi doloribus
+                rem modi saepe perspiciatis dicta voluptate aspernatur reiciendis nemo quam cum dolore et quas laborum ipsum
+                eos iusto tempore ratione voluptatum? Cum, hic. Sunt, aut quod enim debitis consequatur quam porro dicta
+                et aliquam deleniti, voluptatibus aliquid minus asperiores nam natus! Quod veniam soluta doloremque explicabo
+                consequuntur nulla nobis magni nihil aspernatur velit. Veritatis repellendus maiores dolores maxime necessitatibus
+                nisi ea cupiditate mollitia ut nesciunt expedita optio, error ab perspiciatis molestiae eligendi repellat
+                similique omnis assumenda temporibus iste eum. Aut quos consectetur qui. Totam fuga sit quas illo laborum.
+                Officiis, ipsam! Cum quidem dignissimos eveniet commodi amet. Velit dolorum tempora ad molestiae, unde ut
+                vitae repellendus culpa nihil magnam excepturi laborum perspiciatis sequi? Similique fugit nulla accusamus
+                saepe aut veritatis quibusdam eaque explicabo necessitatibus quam quas, suscipit, nobis optio itaque ut quod
+                maxime aliquid! Voluptate fugit omnis, neque obcaecati eum ad incidunt officia. Nihil impedit cupiditate
+                eaque voluptate magnam quaerat facilis omnis quis cum necessitatibus, illo tempore repellendus quisquam earum
+                voluptas. Iusto iure dolor eum dicta laudantium itaque repellat unde quam, quas debitis?
+            </p>
+        </div>
+    </div>
 </body>
+
 </html>

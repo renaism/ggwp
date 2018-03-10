@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+}
+
+div#homeCarousel, div.carousel-inner, div.carousel-item {
+    height: 100%;
+}
+
+div#homeCarousel {
+    z-index: 5;
+}
+
+div.carousel-img {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#menuNavbar {
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+div#menuNavbar a {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+div.fill {
+    height: 600px;
+}
+
+div.container {
+    z-index: 0;
+}
