@@ -1,0 +1,28 @@
+#buy{
+	background-color: black;
+}
+#ggwp{
+	font-family: inherit;
+	color: white;
+}
+
+#spek{
+	background-color: gray;
+	font-family: helvetica;
+}
+.badan{
+	background-image: url("2.jpg");
+}
+.specs{
+	font-size: 50px;
+}
+#at{
+	font-size: 16px;
+	font-style: bold;
+	text-decoration:underline;
+}
+#headphone1{
+	font-size: 16px;
+	font-style: bold;
+	text-decoration:underline;
+}
