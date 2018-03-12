@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>GGWP | Product Manager</title>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -9,26 +10,34 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="product_manager.css">
 </head>
-<body>
+
+<body class="bg-dark text-white">
     <div class="container">
-        <button class="btn btn-primary">+ Tambah Barang</button>    
+        <a href="product_manager_add.html">
+            <button class="btn btn-primary">+ Add Product</button>
+        </a>
         <div class="row" id="productListing">
             <div class="col-sm-4 col-xs-12">
                 <div class="list-group" id="productCategories">
                     <button type="button" class="list-group-item list-group-item-action active">All</button>
                     <button type="button" class="list-group-item list-group-item-action">Keyboard</button>
                     <button type="button" class="list-group-item list-group-item-action">Mouse</button>
+                    <button type="button" class="list-group-item list-group-item-action">Gamepad</button>
+                    <button type="button" class="list-group-item list-group-item-action">Headset</button>
+                    <button type="button" class="list-group-item list-group-item-action">Accessories</button>
+                    <button type="button" class="list-group-item list-group-item-action">Miscellaneous</button>
                 </div>
             </div>
-            <div  class="col-sm-8 col-xs-12">
-                 <div class="list-group" id="productList">
-                     <a href="#" class="list-group-item list-group-item-action">Headset Meka</a>
-                     <a href="#" class="list-group-item list-group-item-action">Fidget Spinner</a>
-                     <a href="#" class="list-group-item list-group-item-action">Maicih level 3</a>
-                     <a href="#" class="list-group-item list-group-item-action">Bumi itu bulat</a>
-                 </div>
+            <div class="col-sm-8 col-xs-12">
+                <div class="list-group" id="productList">
+                    <a href="#" class="list-group-item list-group-item-action">Headset Meka</a>
+                    <a href="#" class="list-group-item list-group-item-action">Fidget Spinner</a>
+                    <a href="#" class="list-group-item list-group-item-action">Maicih level 3</a>
+                    <a href="#" class="list-group-item list-group-item-action">Bumi itu bulat</a>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
