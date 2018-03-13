@@ -8,6 +8,7 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="Scripts/insert-barang.js"></script>
     <link rel="stylesheet" href="product_manager.css">
 </head>
 
@@ -62,7 +63,8 @@
                 <label for="imagesInput">Product Image</label>
                 <input type="url" class="form-control" id="imagesInput" placeholder="Enter Image URL">
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Add Product</button>
+            <button type="button" class="btn btn-primary mt-2" onclick="addBarang()">Add Product</button>
+            <button type="button" class="btn btn-danger mt-2">Cancel</button>
         </form>
     </div>
 </body>
