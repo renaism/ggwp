@@ -16,11 +16,13 @@ function addBarang() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        async: false,
         url: "http://localhost/ggwp/insert_product.php",
         data: { data: JSON.stringify(productsData) },
-        success: function() { console.log("Success writing to JSON file:\n" + data) },
-        failure: function() { console.log("Error in writing JSON file") }
+        success: function(result) { 
+            console.log("Success writing to JSON file: " + data.name);
+            window.open("product_manager.html", "_self", false);
+     },
+        failure: function(result) { console.log("Error in writing JSON file") }
     });
 }
 

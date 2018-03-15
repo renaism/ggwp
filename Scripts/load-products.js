@@ -2,6 +2,7 @@ var productsData = [];
 
 function refreshProducts(data) {
     $("#productList").html("");
+    console.log(data);
     var productListHTML= "";
     for (let i = 0; i < data.length; i++) {
         let name = data[i].name;
