@@ -4,43 +4,16 @@ body {
     color: white;
 }
 
-html, body {
-    height: 100%;
-}
-
 .btn-primary {
     background-color: #4DFFDB;
     color: #343a40;
     font-weight: bold;
 }
 
-div#homeCarousel, div.carousel-inner, div.carousel-item {
-    height: 100%;
-}
-
-div#homeCarousel {
-    z-index: 5;
-}
-
-div.carousel-img {
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 ul#menuNavbar a {
     font-size: 18px;
     font-weight: bold;
     color: #4DFFDB;
-}
-
-div.fill {
-    height: 600px;
-}
-
-div.container {
-    z-index: 0;
 }
 
 #footer {
