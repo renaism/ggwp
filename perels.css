@@ -1,0 +1,46 @@
+div.item-price {
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+.ggwp{
+    color: #4dffdb;
+    font-size: 2rem;
+}
+.ggwp-button{
+    background-color: #4dffdb;
+}
+.list-text{
+    color: rgb(190, 190, 190);
+}
+
+.list-text:hover{
+    text-decoration: none;
+    color: #4dffdb; 
+}
+.zoom{
+    background-color:transparent;
+    transition: transform .2s; 
+    margin: 0 auto;
+}
+.zoom:hover{
+    transform: scale(1.3);
+    z-index: 50;
+}
+.carding{
+    margin: 15px;
+    border: none;
+}
+.cardp{
+    background-color: transparent;
+    border-left-color: #4dffdb;
+}
+.cardtext{
+    color: rgb(190, 190, 190);
+    background-color: black;
+}
+.cardtext:hover{
+    color: #4dffdb;
+}
+body{
+    background-color: black;
+}
