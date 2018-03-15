@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+}
+
+div#homeCarousel, div.carousel-inner, div.carousel-item {
+    height: 100%;
+}
+
+div#homeCarousel {
+    z-index: 5;
+}
+
+div.carousel-img {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
