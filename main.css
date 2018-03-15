@@ -1,5 +1,17 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: white;
+}
+
 html, body {
     height: 100%;
+}
+
+.btn-primary {
+    background-color: #4DFFDB;
+    color: #343a40;
+    font-weight: bold;
 }
 
 div#homeCarousel, div.carousel-inner, div.carousel-item {
@@ -17,20 +29,10 @@ div.carousel-img {
     background-size: cover;
 }
 
-div#menuNavbar {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    /*transform: translateX(-50%); */
-    z-index: 10;
-}
-
-div#menuNavbar a {
+ul#menuNavbar a {
     font-size: 18px;
     font-weight: bold;
-    color: white;
+    color: #4DFFDB;
 }
 
 div.fill {
