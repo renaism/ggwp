@@ -13,14 +13,19 @@ function addBarang() {
     }
     console.log(product);
     productsData.push(product);
-    $.post("http://localhost/ggwp/data_barang.json", JSON.stringify(productsData), function(data) {
-        console.log("Success writing to JSON file");
-        console.log(data);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        async: false,
+        url: "http://localhost/ggwp/insert_product.php",
+        data: { data: JSON.stringify(productsData) },
+        success: function() { console.log("Success writing to JSON file:\n" + data) },
+        failure: function() { console.log("Error in writing JSON file") }
     });
 }
 
 $("document").ready(function() {
-    $.getJSON("http://localhost/ggwp/data_barang.json", function(data) {
+    $.getJSON("http://localhost/ggwp/products_data.json", function(data) {
         productsData = data;
         console.log(productsData);
     });
