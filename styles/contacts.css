@@ -1,0 +1,19 @@
+.bg1 {
+    width: 100%;
+    height: 400px;
+}
+
+#kanan {
+    padding-left: 50px;
+}
+
+.ipt1 {
+    width: 500px;
+    margin-bottom: 30px;
+}
+
+.ipt2 {
+    width: 500px;
+    height: 250px;
+    margin-bottom: 50px;
+}
