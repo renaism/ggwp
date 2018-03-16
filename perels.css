@@ -33,6 +33,9 @@ div.item-price {
 .cardp{
     background-color: transparent;
     border-left-color: #4dffdb;
+    border-width: 0.25rem;
+    margin-left: 1rem;
+    padding-left: 0.75rem;
 }
 .cardtext{
     color: rgb(190, 190, 190);
