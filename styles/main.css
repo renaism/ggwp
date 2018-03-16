@@ -16,6 +16,10 @@ ul#menuNavbar a {
     color: #4DFFDB;
 }
 
+#loggedUser a {
+    color: #4DFFDB;
+}
+
 #footer {
     font-size: 12px;
 }

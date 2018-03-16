@@ -1,23 +1,38 @@
 var productsData = [];
 
 function refreshProducts(data) {
-    $("#productList").html("");
+    $("#productsRow").html("");
     console.log(data);
     var productListHTML= "";
     for (let i = 0; i < data.length; i++) {
         let name = data[i].name;
         let imglink = "";
         if(data[i].category == "Mouse") {
-            imglink = "mouse/g502.png";
+            imglink = "products-img/mouse.png";
+        }
+        else if(data[i].category == "Keyboard") {
+            imglink = "products-img/keyboard.png";
+        }
+        else if(data[i].category == "Headset") {
+            imglink = "products-img/headset.png";
+        }
+        else if(data[i].category == "Gamepad") {
+            imglink = "products-img/gamepad.png";
+        }
+        else if(data[i].category == "Accessories") {
+            imglink = "products-img/acc.png";
+        }
+        else {
+            imglink = "products-img/misc.png";
         }
         productListHTML
         productListHTML += 
         '<div class="col-sm-4 "><div class="card carding zoom"><div class="card-body">' +
         '<img class="card-img-top" src="' + imglink  + '" alt="Card image cap"></div>' +
         '<a href="#" class="card-link cardtext">' + data[i].name + '</a>' +
-        '<div class="item-price">Rp.' + data[i].price  + '</div></div></div>';
+        '<div class="item-price">Rp. ' + $.number(data[i].price, 0, ',', '.')  + ',-</div></div></div>';
     }
-    $("#productList").html(productListHTML);
+    $("#productsRow").html(productListHTML);
 }
 
 function getProducts() {

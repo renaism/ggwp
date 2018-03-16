@@ -8,12 +8,16 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="scripts/header_footer.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/products-crud.js"></script>
-    <link rel="stylesheet" href="product_manager.css">
 </head>
 
-<body class="bg-dark text-white">
-    <div class="container">
+<body>
+    <div id="header"></div>
+    <div class="container" style="margin-top:90px">
         <h1>Add a Product</h1>
         <form class="mb-3">
             <div class="form-group">
@@ -66,9 +70,12 @@
                 <input type="text" class="form-control" id="imagesInput" placeholder="Enter Image URL">
             </div>
             <button type="button" class="btn btn-primary mt-2" onclick="addProduct()">Add Product</button>
-            <a href="product_manager.html"><button type="button" class="btn btn-danger mt-2">Cancel</button></a>
+            <a href="product_manager.html">
+                <button type="button" class="btn btn-danger mt-2">Cancel</button>
+            </a>
         </form>
     </div>
+    <div id="footer"></div>
 </body>
 
 </html>

@@ -8,17 +8,22 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="scripts/header_footer.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/product_manager.js"></script>
-    <link rel="stylesheet" href="product_manager.css">
+    <link rel="stylesheet" href="styles/product_manager.css">
 </head>
 
-<body class="bg-dark text-white">
+<body>
+    <div id="header"></div>
     <div class="container">
         <a href="product_manager_add.html">
             <button class="btn btn-primary">+ Add Product</button>
         </a>
         <div class="row" id="productListing">
-            <div class="col-sm-4 col-xs-12">
+            <div class="col-sm-4 col-xs-12 mb-3">
                 <div class="list-group" id="productCategories">
                     <button type="button" class="list-group-item list-group-item-action active" id="catAllBtn">All</button>
                     <button type="button" class="list-group-item list-group-item-action" id="catKeyboardBtn">Keyboard</button>
@@ -41,6 +46,7 @@
             </div>
         </div>
     </div>
+    <div id="footer"></div>
 </body>
 
 </html>
