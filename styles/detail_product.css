@@ -1,0 +1,75 @@
+body {
+	background-color: black;
+}
+
+#buy{
+	background-color: black;
+}
+#ggwp{
+	font-family: inherit;
+	color: white;
+}
+
+#spek{
+	font-family: helvetica;
+	color: white
+}
+
+.specs{
+	font-size: 50px;
+}
+#at{
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration:underline;
+}
+#headphone1{
+	font-size: 16px;
+	font-style: bold;
+	text-decoration:underline;
+}
+.namabarang{
+	padding-top: 0;
+	padding-bottom: 0;
+	font-weight: bold;
+	color:white;
+	font-size: 30px;
+}
+.harga{
+	color: red;
+	font-size: 30px;
+}
+.description{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+.desc{
+	color: white;
+}
+.kategori{
+	font-size: 11px;
+	color: white;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.zoom{
+	transition: transform .2s;
+	margin: 0 auto;
+}
+.zoom:hover{
+	transform: scale(1.5);
+	z-index: 50;
+}
+.overview{
+	align-content: center;
+}
+#overviewTab{
+	font-family: 'Raleway';
+	color: #4dffdb;
+}
+ul#menuNavbar a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4DFFDB;
+}
