@@ -8,7 +8,7 @@
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="scripts/insert-product.js"></script>
+    <script src="scripts/products-crud.js"></script>
     <link rel="stylesheet" href="product_manager.css">
 </head>
 
@@ -63,9 +63,9 @@
             </div>
             <div class="form-group">
                 <label for="imagesInput">Product Image</label>
-                <input type="url" class="form-control" id="imagesInput" placeholder="Enter Image URL">
+                <input type="text" class="form-control" id="imagesInput" placeholder="Enter Image URL">
             </div>
-            <button type="button" class="btn btn-primary mt-2" onclick="addBarang()">Add Product</button>
+            <button type="button" class="btn btn-primary mt-2" onclick="addProduct()">Add Product</button>
             <a href="product_manager.html"><button type="button" class="btn btn-danger mt-2">Cancel</button></a>
         </form>
     </div>
