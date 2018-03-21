@@ -1,12 +1,11 @@
 var productsData = [];
 
 function generateID() {
-    var id = productsData[productsData.length - 1].id;
-    if (id == null) {
+    if (productsData.length == 0) {
         return 1;
     }
     else {
-        return id + 1;
+        return productsData[productsData.length - 1].id + 1;
     }
 }
 
