@@ -31,11 +31,11 @@ function addProduct() {
         data: { data: JSON.stringify(productsData) },
         success: function (result) {
             console.log("Success writing to JSON file: ");
-            window.open("product_manager.html", "_self");
+            window.open("admin.php", "_self");
         },
         error: function (result) {
             console.log("Error in writing JSON file");
-            window.open("product_manager.html", "_self");
+            window.open("admin.php", "_self");
         }
     });
 }

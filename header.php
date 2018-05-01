@@ -19,7 +19,7 @@
             </ul>
             <ul class="nav justify-content-right">
                 <li class="nav-item" id="loggedUser">
-                    <a class="nav-link" href="product_manager.php"><i class="fa fa-user"></i> Manager</a>
+                    <a class="nav-link" href="#"><i class="fa fa-user"></i> Sign-up</a>
                 </li>
             </ul>
             <!-- <button class="btn btn-primary navbar-btn">Manager</button> -->
