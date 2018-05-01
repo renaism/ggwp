@@ -91,6 +91,7 @@
             </div>
             <div class="col-lg-7" id="kanan">
                 <!--Konten Kanan-->
+                <form method="POST" action="message_submit.php">
                 <h2>
                     <u>Send Us A Message</u>
                 </h2>
@@ -108,7 +109,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" class="ipt1">
+                                <input type="text" class="ipt1" name="nama">
                             </td>
                         </tr>
                         <tr>
@@ -120,7 +121,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" class="ipt1">
+                                <input type="text" class="ipt1" name="email">
                             </td>
                         </tr>
                         <tr>
@@ -132,7 +133,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" class="ipt1">
+                                <input type="text" class="ipt1" name="subject">
                             </td>
                         </tr>
                         <tr>
@@ -144,12 +145,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <textarea class="ipt2"></textarea>
+                                <textarea class="ipt2" name="pesan"></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="button" class="submit" value="Submit">
+                                <input type="submit" name="submit" value="Submit">
                             </td>
                         </tr>
                     </form>

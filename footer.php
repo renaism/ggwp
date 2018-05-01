@@ -14,6 +14,7 @@
             </div>
             <div>
                 &copy; 2018 GGWP. All rights not reserved yet
+                <a href="admin.php"><button class="btn btn-primary float-right">Admin</button></a>
             </div>
         </div>
     </div>

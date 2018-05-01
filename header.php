@@ -19,10 +19,22 @@
             </ul>
             <ul class="nav justify-content-right">
                 <li class="nav-item" id="loggedUser">
-                    <a class="nav-link" href="#"><i class="fa fa-user"></i> Sign-up</a>
+                    <?php 
+                        session_start();
+                        if(isset($_SESSION["username"])) {
+                            echo "Welcome, ". $_SESSION["username"]. ". ";
+                    ?>
+                            <a class="nav-link" href="signout.php"><i class="fa fa-user"></i> Sign-out</a>
+                    <?php
+                        }
+                        else {
+                    ?>
+                            <a class="nav-link" href="signin.php"><i class="fa fa-user"></i> Sign-in</a>
+                    <?php
+                        }
+                    ?>
                 </li>
             </ul>
-            <!-- <button class="btn btn-primary navbar-btn">Manager</button> -->
         </div>
     </nav>
 </div>

@@ -2,11 +2,35 @@
 <html>
 
 <head>
-    <?php include 'default_head.php' ?>    
+    <?php include 'default_head.php' ?>
+    <?php
+        if(isset($_GET["id"])) {
+            $id = $_GET["id"];
+            $sql = "SELECT name, brand, category, price, description, details, specifications, image FROM products WHERE id='$id';";
+            $query = $db->query($sql);
+            if($query->num_rows == 1) {
+                $row = $query->fetch_assoc();
+                $name = $row["name"];
+                $brand = $row["brand"];
+                $category = $row["category"];
+                $price = $row["price"];
+                $description = $row["description"];
+                $details = $row["details"];
+                $specifications = $row["specifications"];
+                $image = $row["image"];
+            }
+            else {
+                header("location: products.php");
+            }
+        }
+        else {
+            header("location: products.php");
+        }
+    ?>
     <title>GGWP</title>
     <script src="plugins/number-format/jquery.number.js"></script>
-    <script src="scripts/detail_product.js"></script>
     <link rel="stylesheet" href="styles/detail_product.css">
+    <script src="scripts/detail_product.js"></script>
 </head>
 
 <body>
@@ -17,10 +41,10 @@
                 <img class="img-fluid" id="image" src="images/19.jpg">
             </div>
             <div class="col-md-4 col-xs-12">
-                <p id="category">Category:</p>
-                <p id="name">Thresher Ultimate PS4 headset</p>
-                <p id="price">IDR 1.000.000</p>
-                <p id="description">DESCRIPTION</p>
+                <p id="category">Category: <?= $category ?></p>
+                <p id="name"><?= $name ?></p>
+                <p id="price">IDR <?= $price ?></p>
+                <p id="description"><?= $description ?></p>
                 <p>
                     <form>
                         <div class="form-row">
@@ -48,18 +72,14 @@
     <div class="container" id="spek" style="margin-top:56px;">
         <div class="row" id="overview">
             <div class="col" id="details">
+                <?= $details ?>
             </div>
         </div>
 
         <div class="row" id="specifications">
             <div class="col" id="specs">
+                <?= $specifications ?>
             </div>
-        </div>
-        <div class="row mt-5 mb-5">
-            <img src="images/20.jpg" class="col-3 zoom">
-            <img src="images/21.jpg" class="col-3 zoom">
-            <img src="images/22.jpg" class="col-3 zoom">
-            <img src="images/23.jpg" class="col-3 zoom">
         </div>
     </div>
 
