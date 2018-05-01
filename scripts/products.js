@@ -34,7 +34,7 @@ function refreshProducts(data) {
         productListHTML +=
             '<div class="col-sm-4 "><div class="card carding zoom"><div class="card-body">' +
             '<img class="card-img-top" src="' + imglink + '" alt="Card image cap"></div>' +
-            '<a href="' + 'detail_product.html?id=' + data[i].id + '" class="card-link cardtext">' + data[i].name + '</a>' +
+            '<a href="' + 'detail_product.php?id=' + data[i].id + '" class="card-link cardtext">' + data[i].name + '</a>' +
             '<div class="item-price">Rp. ' + $.number(data[i].price, 0, ',', '.') + ',-</div></div></div>';
     }
     $("#productsRow").html(productListHTML);

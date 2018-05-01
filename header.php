@@ -8,18 +8,18 @@
             </div>
             <ul class="nav justify-content-center" id="menuNavbar">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="products.html">Product</a>
+                    <a class="nav-link" href="products.php">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contacts.html">Contacts</a>
+                    <a class="nav-link" href="contacts.php">Contacts</a>
                 </li>
             </ul>
             <ul class="nav justify-content-right">
                 <li class="nav-item" id="loggedUser">
-                    <a class="nav-link" href="product_manager.html"><i class="fas fa-user"></i> Manager</a>
+                    <a class="nav-link" href="product_manager.php"><i class="fa fa-user"></i> Manager</a>
                 </li>
             </ul>
             <!-- <button class="btn btn-primary navbar-btn">Manager</button> -->
