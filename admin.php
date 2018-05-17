@@ -5,6 +5,7 @@
         exit;
     }
     require_once "db.php"; 
+    include_once "admin_crud.php";
 ?>  
 <!DOCTYPE html>
 <html>
@@ -76,7 +77,7 @@
                             <input type="hidden" name="id" value=<?="'$id'"?>>    
                             <button type="submit" name="update" class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
                         </form>
-                        <form method="POST" action="admin_crud.php">
+                        <form method="POST">
                             <input type="hidden" name="id" value=<?="'$id'"?>>
                             <button type="submit" name="delete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
@@ -118,7 +119,7 @@
                     <td><?= $row["subject"] ?></td>
                     <td><?= $row["message"] ?></td>
                     <td>
-                        <form method="POST" action="admin_crud.php">
+                        <form method="POST">
                             <input type="hidden" name="msgId" value=<?="'$id'"?>>
                             <button type="submit" name="msgDelete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>

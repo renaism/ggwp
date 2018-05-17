@@ -36,34 +36,15 @@
                             else {
                                 $filter = "";
                             }
-                            $sql = "SELECT id, name, price, category FROM products$filter";
+                            $sql = "SELECT id, name, price, image FROM products$filter";
                             $query = $db->query($sql);
                             if($query->num_rows > 0) {
                                 while($row = $query->fetch_assoc()) {
-                                    $cat = $row["category"];
-                                    if ($cat== "Mouse") {
-                                        $imglink = "products-img/mouse.png";
-                                    }
-                                    elseif ($cat == "Keyboard") {
-                                        $imglink = "products-img/keyboard.png";
-                                    }
-                                    elseif ($cat == "Headset") {
-                                        $imglink = "products-img/headset.png";
-                                    }
-                                    elseif ($cat == "Gamepad") {
-                                        $imglink = "products-img/gamepad.png";
-                                    }
-                                    elseif ($cat == "Accessories") {
-                                        $imglink = "products-img/acc.png";
-                                    }
-                                    else {
-                                        $imglink = "products-img/misc.png";
-                                    }
                         ?>
                                     <div class="col-sm-4 ">
                                         <div class="card carding zoom">
                                             <div class="card-body">
-                                                <img class="card-img-top" src=<?="'$imglink'"?> alt="Card image cap">
+                                                <img class="card-img-top" src=<?="'". $row["image"] . "'"?> alt="Product Image">
                                             </div>
                                             <a href=<?= "'" . "detail_product.php?id=" . $row['id'] . "'" ?> class="card-link cardtext"> <?= $row["name"] ?> </a>
                                             <div class="price"><?= $row["price"] ?></div>

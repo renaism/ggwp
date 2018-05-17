@@ -39,38 +39,10 @@
 
 
         if($result && isset($_FILES["image"])) {
-            $file_ext = strtolower(pathinfo(basename($_FILES["image"]["name"]), PATHINFO_EXTENSION));
-            $target_dir = "products-img/";
-            $target_file = $target_dir . $id . "." . $file_ext;
-            echo $_FILES["image"]["name"] . "<br>";
-            echo $file_ext . "<br>";
-            echo $target_file . "<br>";
-            $uploadOk = TRUE;
-
-            $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if(!$check) {
-                $uploadOk = FALSE;
-                $errMsg = "Warning: Image isn't uploaded. Image is not a vaild file.";
-            }
-
-            if($_FILES["image"]["size"] > 5000000) {
-                $uploadOk = FALSE;
-                $errMsg = "Warning: Image isn't uploaded. Image is too large.";
-            }
-
-            if($file_ext != "jpg" && $file_ext != "png" && $file_ext != "jpeg") {
-                $uploadOk = FALSE;
-                $errMsg = "Warning: Image isn't uploaded. Only JPG, JPEG, and PNG images are allowed. Your image: ". $_FILES["image"]["name"];
-            }
-
-            if($uploadOk) {
-                $uploaded = move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-                if($uploaded) {
-                    $db->query("UPDATE products SET image='$target_file' WHERE id='$id'");
-                }
-                else {
-                    $errMsg = "Warning: Image isn't uploaded. Failed to upload to the database.";
-                }
+            require_once "upload_image.php";
+            $upload = uploadImage("image", "products-img", $id);
+            if($upload) {
+                $db->query("UPDATE products SET image='$upload' WHERE id='$id'");
             }
         }
 

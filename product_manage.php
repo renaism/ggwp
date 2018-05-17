@@ -37,14 +37,23 @@
 <html>
 <head>
     <?php include 'default_head.php' ?>
-    <title>GGWP | Add a Product</title>
+    <?php if(isset($_POST["update"])) { ?>
+        <title>GGWP | Update Product</title>
+    <?php } else { ?>
+        <title>GGWP | Add a Product</title>
+    <?php } ?> 
     <script src="scripts/products-crud.js"></script>
 </head>
 
 <body>
     <?php include 'header.php' ?>
     <div class="container" style="margin-top:90px">
-        <h1>Add a Product</h1>
+        <?php if(isset($_POST["update"])) { ?>
+            <h1>Update Product</h1>
+        <?php } else { ?>
+            <h1>Add a Product</h1>
+        <?php } ?>
+        
         <form method="POST" enctype="multipart/form-data" class="mb-3">
             <div class="form-group">
                 <label for="productNameInput">Product Name</label>
@@ -90,10 +99,6 @@
                 <label for="specificationsInput">Product Specifications</label>
                 <textarea class="form-control" name="specifications" rows="8" placeholder="Enter Specifications"><?=$specifications?></textarea>
             </div>
-            <!-- <div class="form-group">
-                <label for="imagesInput">Product Image</label>
-                <input type="text" class="form-control" name="old-image" value=<?="'$image'"?> placeholder="Enter Image URL">
-            </div> -->
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="image-file" name="image">
                 <label class="custom-file-label" id="image-label" for="customFile">Choose image</label>

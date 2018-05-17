@@ -31,7 +31,7 @@
                                     <?php if(isset($admin)) { ?>
                                         <li><a href="admin.php">Admin Panel</a></li>
                                     <?php } else { ?>
-                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="profile.php">Profile</a></li>
                                     <?php } ?>
                                     <li><a href="signout.php">Sign out</a></li>
                                 </ul>

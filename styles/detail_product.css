@@ -61,12 +61,18 @@ body {
 .overview{
 	align-content: center;
 }
-#overviewTab{
-	font-family: 'Raleway';
-	color: #4dffdb;
-}
+
 ul#menuNavbar a {
     font-size: 18px;
     font-weight: bold;
     color: #4DFFDB;
+}
+
+.tab-content {
+	background-color: gray;
+	color: black;
+}
+
+.tab-content.active {
+	background-color: white;
 }

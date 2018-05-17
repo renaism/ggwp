@@ -32,7 +32,6 @@
     <title>GGWP</title>
     <script src="plugins/number-format/jquery.number.js"></script>
     <link rel="stylesheet" href="styles/detail_product.css">
-    <script src="scripts/detail_product.js"></script>
 </head>
 
 <body>
@@ -40,12 +39,12 @@
     <div class="container" style="margin-top:80px;">
         <div class="row">
             <div class="col-md-8 col-xs-12">
-                <img class="img-fluid" id="image" src="images/19.jpg">
+                <img class="img-fluid" id="image" src=<?= "'$image'" ?> >
             </div>
             <div class="col-md-4 col-xs-12">
                 <p id="category">Category: <?= $category ?></p>
                 <p id="name"><?= $name ?></p>
-                <p id="price">IDR <?= $price ?></p>
+                <p id="price"><?= $price ?></p>
                 <p id="description"><?= $description ?></p>
                 <p>
                     <form>
@@ -62,30 +61,53 @@
             </div>
         </div>
     </div>
-    <ul class="nav nav-tabs justify-content-center">
+    <ul class="mt-5 nav nav-tabs justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" onclick="showOverview()" id="overviewTab">Overview</a>
+            <button class="tab-content nav-link active" onclick="showOverview()" id="overviewTab">Overview</button>
         </li>
         <li class="nav-item">
-            <a class="nav-link" onclick="showSpecifications()" id="specificationsTab">Spesification</a>
+            <button class="tab-content nav-link" onclick="showSpecifications()" id="specificationsTab">Spesification</button>
         </li>
     </ul>
 
-    <div class="container" id="spek" style="margin-top:56px;">
+    <div class="container mb-5" id="spek" style="margin-top:56px;">
         <div class="row" id="overview">
             <div class="col" id="details">
-                <?= $details ?>
+                <h2>Product Details</h2>
+                <p><?= $details ?></p>
             </div>
         </div>
 
         <div class="row" id="specifications">
             <div class="col" id="specs">
-                <?= $specifications ?>
+                <h2>Product Specifcations</h2>
+                <p><?= $specifications ?></p>
             </div>
         </div>
     </div>
 
     <?php include 'footer.php' ?>
+    <script>
+        function showOverview() {
+            $("#overviewTab").addClass("active");
+            $("#specificationsTab").removeClass("active");
+            $("#specifications").hide();
+            $("#overview").show();
+            $("#overview").ready();
+        }
+
+        function showSpecifications() {
+            $("#specificationsTab").addClass("active");
+            $("#overviewTab").removeClass("active");
+            $("#overview").hide();
+            $("#specifications").show();
+        }
+
+        $("document").ready(function() {
+            $("#price").text("Rp " + $.number($("#price").text(), 0, ',', '.') + ",-");
+            $("#specifications").hide();
+        });
+    </script>
 </body>
 
 </html>

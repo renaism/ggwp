@@ -3,10 +3,18 @@
 	if(isset($username)) {
 		header("Location: index.php");
 		exit;
-	}
+    }
+    require_once "db.php";
+    $fname = "";
+    $lname = "";
+    $category = "";
+    $price = "";
+    $description = "";
+    $details = "";
+    $specifications = "";
+    $image = "";
 
-	if(isset($_POST["signup"])) {
-		require_once "db.php";
+	if(isset($_POST["edit-profile"])) {
 		$input_username = trim($_POST["username"]);
         $input_password = hash("sha256", $_POST["password"]);
         $fname = trim($_POST["fname"]);
@@ -31,15 +39,17 @@
                 $db->query("INSERT INTO userdetails (id, fname, lname, email, phone) VALUES ('$id', '$fname', '$lname', '$email', '$phone')");
                 $_SESSION["id"] = $id;
                 $_SESSION["username"] = $input_username;
-                $image = "profiles-img/0.png";
                 if(isset($_FILES["image"])) { 
                     require_once "upload_image.php";
                     $upload = uploadImage("image", "profiles-img", $id);
                     if($upload) {
                         $image = $upload;
                     }
+                    else {
+                        $image = "profiles-img/0.png";
+                    }
+                    $db->query("UPDATE userdetails SET profilepicture='$upload' WHERE id='$id'");
                 }
-                $db->query("UPDATE userdetails SET profilepicture='$image' WHERE id='$id'");
             }
             header("Location: index.php");
 		    exit;
@@ -104,8 +114,8 @@
                 </div>
                 
             </div>
-            <label>Profile Picture</label>
             <div class="custom-file">
+                <label for="imagesInput">Profile Picture</label>
                 <input type="file" class="custom-file-input" id="image-file" name="image">
                 <label class="custom-file-label" id="image-label" for="customFile">Choose image</label>
             </div>
