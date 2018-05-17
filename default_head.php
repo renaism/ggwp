@@ -13,6 +13,3 @@
 
 <!-- Main Styles -->
 <link rel="stylesheet" href="styles/main.css">
-
-<!-- Database -->
-<?php include 'db.php' ?>

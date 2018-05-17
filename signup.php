@@ -1,6 +1,45 @@
+<?php
+	require_once "user.php";
+	if(isset($username)) {
+		header("Location: index.php");
+		exit;
+	}
+
+	if(isset($_POST["signup"])) {
+		require_once "db.php";
+		$input_username = trim($_POST["username"]);
+        $input_password = hash("sha256", $_POST["password"]);
+        $fname = trim($_POST["fname"]);
+        $lname = trim($_POST["lname"]);
+        $email = trim($_POST["email"]);
+        $phone = trim($_POST["phone"]);
+        $pict = trim($_POST["profilepicture"]);
+
+        $check_username = $db->query("SELECT username FROM users WHERE username='$input_username'");
+        $check_email = $db->query("SELECT email FROM userdetails WHERE email='$email'");
+        if($check_username->num_rows >= 1 || $check_email->num_rows >= 1) {
+            if($check_username->num_rows >= 1) {
+                $errMsg = "Username already taken";
+            }
+            else {
+                $errMsg = "E-mail already used";
+            }
+        }
+        else {
+            $result = $db->query("INSERT INTO users (username, password) VALUES ('$input_username', '$input_password')");
+            if($result === TRUE) {
+                $id = $db->insert_id;
+                $db->query("INSERT INTO userdetails (id, fname, lname, email, phone, profilepicture) VALUES ('$id', '$fname', '$lname', '$email', '$phone', '$pict')");
+                $_SESSION["id"] = $id;
+				$_SESSION["username"] = $input_username;
+            }
+            header("Location: index.php");
+		    exit;
+        }
+	}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>
     <title>GGWP | Sign-up</title>
@@ -12,8 +51,19 @@
     <?php include 'header.php' ?>
     <div class="container" style="margin-top:90px">
         <h1>Please fill in this form to create an account</h1>
-        <form method="POST" action="signup_submit.php" class="mb-3">
-			<div class="form-group">
+        <form method="POST" class="mb-3">
+            <?php
+                if (isset($errMsg)) {
+            ?>
+                <div class="form-group">
+                    <div class="alert alert-danger">
+                        <?php echo $errMsg; ?>
+                    </div>
+                </div>
+            <?php
+                }
+            ?>
+            <div class="form-group">
 				<div class="form-row">
 					<div class="col-md-6 col-xs-12">
 						<label for="accountFirstNameInput">First Name</label>

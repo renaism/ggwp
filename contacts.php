@@ -1,6 +1,25 @@
+<?php
+    if(isset($_POST["submitMsg"])) {
+        include_once "db.php";
+
+	 	$name = mysqli_real_escape_string($db, $_POST['nama']);
+		$email = mysqli_real_escape_string($db, $_POST['email']);
+		$subject = mysqli_real_escape_string($db, $_POST['subject']);
+		$message = mysqli_real_escape_string($db, $_POST['pesan']);
+
+		if($db->query("INSERT INTO messages (name, email, subject, message) VALUES ('$name', '$email', '$subject', '$message')")) {
+            $msg = "Your message has been sent";
+            $alert = "success";
+        }
+        else {
+            $msg = "Failed to send message";
+            $alert = "danger";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>
     <title>GGWP | Contact Us</title>
@@ -13,6 +32,17 @@
         <img class="bg1" src="images/contacts/bg1.jpg">
     </div>
     <div class="container mt-5 mb-5">
+        <?php
+            if (isset($msg)) {
+        ?>
+            <div class="form-group">
+                <div class=<?php echo "'alert alert-$alert'"; ?>>
+                    <?php echo $msg; ?>
+                </div>
+            </div>
+        <?php
+            }
+        ?>
         <div class="row">
             <!--Konten-->
             <div class="col-lg-5">
@@ -91,7 +121,7 @@
             </div>
             <div class="col-lg-7" id="kanan">
                 <!--Konten Kanan-->
-                <form method="POST" action="message_submit.php">
+                <form method="POST">
                 <h2>
                     <u>Send Us A Message</u>
                 </h2>
@@ -150,7 +180,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" name="submit" value="Submit">
+                                <input type="submit" name="submitMsg" value="Submit">
                             </td>
                         </tr>
                     </form>

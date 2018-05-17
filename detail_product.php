@@ -1,6 +1,8 @@
+<?php 
+    require_once "db.php"; 
+?>  
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>
     <?php

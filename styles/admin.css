@@ -5,3 +5,7 @@ div.container {
 div#productListing {
     margin-top: 20px;
 }
+
+#productsTable form,  #productsTable form button {
+    display: inline-block;
+}

@@ -1,6 +1,13 @@
+<?php 
+    require_once "user.php";
+    if(!isset($admin)) {
+        header("Location: signin_admin.php");
+        exit;
+    }
+    require_once "db.php"; 
+?>  
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>    
     <title>GGWP | Admin Panel</title>
@@ -11,14 +18,28 @@
     <!-- Number Format -->
     <script src="plugins/number-format/jquery.number.js"></script>
 
-    <script src="scripts/product_manager.js"></script>
-    <link rel="stylesheet" href="styles/product_manager.css">
+    <!--<script src="scripts/product_manager.js"></script>-->
+    <link rel="stylesheet" href="styles/admin.css">
 </head>
 
 <body>
     <?php include 'header.php' ?>
     
     <div class="container">
+        <?php
+            if (isset($_SESSION["error"])) {
+        ?>
+            <div class="form-group">
+                <div class="alert alert-danger">
+                    <?php 
+                        echo $_SESSION["error"]; 
+                        unset($_SESSION["error"]);
+                    ?>
+                </div>
+            </div>
+        <?php
+            }
+        ?>
         <h2>Manage Product</h2>
         <a href="product_manage.php">
             <button class="btn btn-primary ml-3 mb-3">+ Add Product</button>
@@ -55,7 +76,7 @@
                             <input type="hidden" name="id" value=<?="'$id'"?>>    
                             <button type="submit" name="update" class="btn btn-warning"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
                         </form>
-                        <form method="POST" action="product_crud.php">
+                        <form method="POST" action="admin_crud.php">
                             <input type="hidden" name="id" value=<?="'$id'"?>>
                             <button type="submit" name="delete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
@@ -68,7 +89,7 @@
                 ?>
             </tbody>
         </table>
-        <h2>View Messages</h2>
+        <h2 class="mt-5">View Messages</h2>
         <table id="messagesTable" class="table table-dark table-striped table-hover table-bordered">
             <thead>
                 <tr>
@@ -77,6 +98,7 @@
                     <th>E-mail</th>
                     <th>Subject</th>
                     <th>Message</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -96,9 +118,9 @@
                     <td><?= $row["subject"] ?></td>
                     <td><?= $row["message"] ?></td>
                     <td>
-                        <form method="POST" action="message_crud.php">
-                            <input type="hidden" name="id" value=<?="'$id'"?>>
-                            <button type="submit" name="delete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <form method="POST" action="admin_crud.php">
+                            <input type="hidden" name="msgId" value=<?="'$id'"?>>
+                            <button type="submit" name="msgDelete" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -113,8 +135,10 @@
     <?php include 'footer.php' ?>
     <script>
         $(document).ready(function() {
-            $('#productsTable').DataTable();
-            $('#messagesTable').DataTable();
+            $("table.table").DataTable();
+            $(".price").each(function(i, p) {
+                $(p).text("Rp " + $.number($(p).text(), 0, ',', '.') + ",-");
+            });
         });
     </script>
 </body>

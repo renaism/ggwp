@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>
     <title>GGWP | Home</title>

@@ -1,6 +1,40 @@
+<?php 
+    require_once "user.php";
+    if(!isset($admin)) {
+        header("Location: signin_admin.php");
+        exit;
+    }
+    require_once "db.php";
+    $name = "";
+    $brand = "";
+    $category = "";
+    $price = "";
+    $description = "";
+    $details = "";
+    $specifications = "";
+    $image = "";
+    include_once "admin_crud.php";
+    
+    if(isset($_POST["update"])) {
+        $id = $_POST["id"];
+        $sql = "SELECT name, brand, category, price, description, details, specifications, image FROM products WHERE id='$id';";
+        $query = $db->query($sql);
+        if($query->num_rows == 1) {
+            $row = $query->fetch_assoc();
+            $name = $row["name"];
+            $brand = $row["brand"];
+            $category = $row["category"];
+            $price = $row["price"];
+            $description = $row["description"];
+            $details = $row["details"];
+            $specifications = $row["specifications"];
+            $image = $row["image"];
+        }
+        
+    }
+?>  
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include 'default_head.php' ?>
     <title>GGWP | Add a Product</title>
@@ -9,37 +43,9 @@
 
 <body>
     <?php include 'header.php' ?>
-    <?php 
-        $name = "";
-        $brand = "";
-        $category = "";
-        $price = "";
-        $description = "";
-        $details = "";
-        $specifications = "";
-        $image = "";
-
-        if(isset($_POST["update"])) {
-            $id = $_POST["id"];
-            $sql = "SELECT name, brand, category, price, description, details, specifications, image FROM products WHERE id='$id';";
-            $query = $db->query($sql);
-            if($query->num_rows == 1) {
-                $row = $query->fetch_assoc();
-                $name = $row["name"];
-                $brand = $row["brand"];
-                $category = $row["category"];
-                $price = $row["price"];
-                $description = $row["description"];
-                $details = $row["details"];
-                $specifications = $row["specifications"];
-                $image = $row["image"];
-            }
-            
-        }
-    ?>
     <div class="container" style="margin-top:90px">
         <h1>Add a Product</h1>
-        <form method="POST" action="product_crud.php" class="mb-3">
+        <form method="POST" enctype="multipart/form-data" class="mb-3">
             <div class="form-group">
                 <label for="productNameInput">Product Name</label>
                 <input type="text" class="form-control" name="name" placeholder="Enter Name" value=<?="'$name'"?> requierd>
@@ -84,20 +90,24 @@
                 <label for="specificationsInput">Product Specifications</label>
                 <textarea class="form-control" name="specifications" rows="8" placeholder="Enter Specifications"><?=$specifications?></textarea>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="imagesInput">Product Image</label>
-                <input type="text" class="form-control" name="image" value=<?="'$image'"?> placeholder="Enter Image URL">
+                <input type="text" class="form-control" name="old-image" value=<?="'$image'"?> placeholder="Enter Image URL">
+            </div> -->
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="image-file" name="image">
+                <label class="custom-file-label" id="image-label" for="customFile">Choose image</label>
             </div>
             <?php
                 if(isset($_POST["update"])) { 
             ?>
                     <input type=hidden value=<?="'$id'"?> name="id">
-                    <button type="submit" class="btn btn-primary mt-2" name="update">Update Product</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="update-product">Update Product</button>
             <?php
                 }
                 else {
             ?>
-                    <button type="submit" class="btn btn-primary mt-2" name="create">Add Product</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="create-product">Add Product</button>
             <?php
                 }
             ?>
@@ -107,6 +117,10 @@
         </form>
     </div>
     <?php include 'footer.php' ?>
+    <script>
+        $("#image-file").change(function() {
+            $("#image-label").text($(this).val());
+        });
+    </script>
 </body>
-
 </html>
